@@ -1,21 +1,34 @@
 <div class="container">
-    <div class="title-header">
-      <span textFitter innerText="{{'Time to ' + eventTitle}}"></span>
-    </div>
-    <div class="date-header">
-      <span textFitter innerText="{{days+'days, '+ hours + 'h, ' + minutes + 'm, ' + seconds + 's'}}"></span>
-    </div>
-    <div class="form-fields">
-      <mat-form-field appearance="outline" floatLabel="always" class="field">
-        <mat-label>Title</mat-label>
-        <input matInput [(ngModel)]="eventTitle" (change)="eventTitleHandler()">
-      </mat-form-field>
-      <mat-form-field appearance="outline" floatLabel="always" class="field">
-        <mat-label>Date</mat-label>
-        <input matInput [matDatepicker]="datepicker" [(ngModel)]="eventDate" [min]="minDate" (dateChange)="eventDateHandler()">
-        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-        <mat-datepicker #datepicker>
-        </mat-datepicker>
-      </mat-form-field>
-    </div>
+  <div class="title-header">
+    <span textFitter innerText="{{ 'Time to ' + eventTitle }}"></span>
+  </div>
+  <div class="date-header">
+    <span
+      textFitter
+      innerText="{{
+        days + 'days, ' + hours + 'h, ' + minutes + 'm, ' + seconds + 's'
+      }}"
+    ></span>
+  </div>
+  <div class="form-fields">
+    <mat-form-field appearance="outline" floatLabel="always" class="field">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="eventTitle" (change)="eventTitleHandler()" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" floatLabel="always" class="field">
+      <mat-label>Date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="datepicker"
+        [(ngModel)]="eventDate"
+        [min]="minDate"
+        (dateChange)="eventDateHandler()"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="datepicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #datepicker> </mat-datepicker>
+    </mat-form-field>
+  </div>
 </div>

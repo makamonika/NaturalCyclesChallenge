@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   seconds: number = 0;
@@ -13,22 +12,22 @@ export class AppComponent implements OnInit {
   hours: number = 0;
   days: number = 0;
 
-  eventTitle: string = "";
+  eventTitle: string = '';
   eventDate: any = null;
 
   minDate: Date = new Date();
 
   ngOnInit(): void {
-    this.eventTitle = localStorage.getItem("eventTitle") ?? "";
-    this.eventDate = localStorage.getItem("eventDate") ?? null;
+    this.eventTitle = localStorage.getItem('eventTitle') ?? '';
+    this.eventDate = localStorage.getItem('eventDate') ?? null;
     this.counter;
   }
 
-  counter = setInterval(()=>{
+  counter = setInterval(() => {
     let currentDate: Date = new Date();
     let currentTime: number = currentDate.getTime();
 
-    if(this.eventDate != null && !(this.eventDate instanceof Date)){
+    if (this.eventDate != null && !(this.eventDate instanceof Date)) {
       let momentDate = moment(this.eventDate);
       this.eventDate = momentDate.toDate();
     }
@@ -44,22 +43,20 @@ export class AppComponent implements OnInit {
     this.minutes %= 60;
     this.seconds %= 60;
 
-
-    if(difference == 0){
+    if (difference == 0) {
       clearInterval(this.counter);
     }
   }, 1000);
 
-  eventTitleHandler(){
-    if(this.eventTitle != localStorage.getItem("eventTitle")){
-      localStorage.setItem("eventTitle", this.eventTitle);
+  eventTitleHandler() {
+    if (this.eventTitle != localStorage.getItem('eventTitle')) {
+      localStorage.setItem('eventTitle', this.eventTitle);
     }
   }
 
-  eventDateHandler(){
-    if(this.eventDate != localStorage.getItem("eventDate")){
-      localStorage.setItem("eventDate", this.eventDate);
+  eventDateHandler() {
+    if (this.eventDate != localStorage.getItem('eventDate')) {
+      localStorage.setItem('eventDate', this.eventDate);
     }
   }
-    
 }
