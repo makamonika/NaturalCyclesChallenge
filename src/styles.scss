@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+$bg-color: #87B738;
+$font-color: #FFDF5C;
+
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-color: $bg-color; 
+    color: $font-color;
+    text-align: center;
+    text-size-adjust: auto;
+}
